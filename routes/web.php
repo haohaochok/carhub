@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/hello',function() {
+    return response('<h1>Just first project</h1>',200)
+    ->header('Content-Type','text/plain')
+    ->header('democonsole','kill');
+});
+
+Route::get('/post/{id}',function($id){
+    return response('Post'.$id);
+})->where('id','[0-9]+');
